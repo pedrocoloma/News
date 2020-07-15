@@ -30,31 +30,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('News'),
-        elevation: 0,
-      ),
-      body: _isLoading
-          ? Center(
-              child: Container(
-                child: CircularProgressIndicator(),
-              ),
-            )
-          : Container(
-              child: ListView.builder(
-                itemCount: articles.length,
-                shrinkWrap: true,
-                physics: ClampingScrollPhysics(),
-                itemBuilder: (context, index) => ListTile(
-                  title: articles[index].title,
-                  description: articles[index].description,
-                  imageUrl: articles[index].urlToImage,
-                  url: articles[index].url,
-                ),
+    return _isLoading
+        ? Center(
+            child: Container(
+              child: CircularProgressIndicator(),
+            ),
+          )
+        : Container(
+            child: ListView.builder(
+              itemCount: articles.length,
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              itemBuilder: (context, index) => ListTile(
+                title: articles[index].title,
+                description: articles[index].description,
+                imageUrl: articles[index].urlToImage,
+                url: articles[index].url,
               ),
             ),
-    );
+          );
   }
 }
 
