@@ -20,9 +20,11 @@ class _HomeAppState extends State<HomeApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'News App  ',
+        title: 'News App',
         theme: ThemeData(
           primaryColor: Colors.white,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: Scaffold(
