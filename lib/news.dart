@@ -3,9 +3,8 @@ import 'models/article.dart';
 import 'package:http/http.dart' as http;
 
 class CategoryNews {
-  List<Article> news = [];
-
-  Future<void> getNews(String category) async {
+  Future<List<Article>> getNews(String category) async {
+    List<Article> articles = [];
     String url =
         'http://newsapi.org/v2/top-headlines?country=br&category=${category}&apiKey=63db1b3624f145c7b88677a76be4d357';
 
@@ -24,10 +23,11 @@ class CategoryNews {
             urlToImage: element['urlToImage'],
           );
 
-          news.add(article);
+          articles.add(article);
         }
       });
     }
+    return articles;
   }
 
   Future<List<Article>> getFeaturedNews(String category) async {

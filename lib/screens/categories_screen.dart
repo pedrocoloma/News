@@ -63,7 +63,8 @@ class _CategoryTileState extends State<CategoryTile> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CategoryScreen(),
+                        builder: (context) =>
+                            CategoryScreen(widget._category.identifier),
                       ));
                 },
                 child: Row(
