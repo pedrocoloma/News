@@ -6,6 +6,7 @@ import 'package:newsapp/news.dart';
 import 'package:newsapp/screens/article_screen.dart';
 import 'package:newsapp/screens/category_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CategoriesScreen extends StatelessWidget {
   List<Category> _categories = getCategories();
@@ -53,8 +54,39 @@ class _CategoryTileState extends State<CategoryTile> {
   Widget build(BuildContext context) {
     return isLoading
         ? Container(
-            child: Container(child: CircularProgressIndicator()),
-            height: 220,
+            child: Container(
+              height: 240,
+              child: Shimmer.fromColors(
+                baseColor: Colors.grey[300],
+                highlightColor: Colors.grey[100],
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (_, __) => Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 10.0,
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          height: 140,
+                          width: 260,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 70,
+                          width: 260,
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
           )
         : Column(
             children: <Widget>[
