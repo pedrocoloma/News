@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/components/feed.dart';
 import 'package:newsapp/models/article.dart';
 import 'package:newsapp/news.dart';
-import 'package:newsapp/components/feed.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomeScreen extends StatefulWidget {

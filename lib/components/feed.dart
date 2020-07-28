@@ -22,6 +22,5 @@ class Feed extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

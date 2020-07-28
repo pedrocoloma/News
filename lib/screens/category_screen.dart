@@ -5,7 +5,7 @@ import 'package:newsapp/news.dart';
 
 class CategoryScreen extends StatefulWidget {
   CategoryScreen(this.category);
-  String category;
+  final String category;
 
   @override
   _CategoryScreenState createState() => _CategoryScreenState();

@@ -9,7 +9,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  List<Category> _categories = getCategories();
+  final List<Category> _categories = getCategories();
 
   @override
   Widget build(BuildContext context) {
