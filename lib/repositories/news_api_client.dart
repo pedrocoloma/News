@@ -1,12 +1,17 @@
-import 'dart:convert';
-import 'models/article.dart';
 import 'package:http/http.dart' as http;
+import 'package:newsapp/models/models.dart';
+import 'dart:convert';
 
-class CategoryNews {
-  Future<List<Article>> getNews(String category) async {
+class NewsApiClient {
+  final http.Client httpClient;
+  final baseUrl = 'http://newsapi.org/v2/top-headlines?country=br';
+
+  NewsApiClient({this.httpClient}) /*: assert(httpClient != null)*/;
+
+  Future<List<Article>> getNewsForCategory(String category) async {
     List<Article> articles = [];
     String url =
-        'http://newsapi.org/v2/top-headlines?country=br&category=$category&apiKey=63db1b3624f145c7b88677a76be4d357';
+        '$baseUrl&category=$category&apiKey=63db1b3624f145c7b88677a76be4d357';
 
     var response = await http.get(url);
 
@@ -34,7 +39,7 @@ class CategoryNews {
     List<Article> articles = [];
 
     String url =
-        'http://newsapi.org/v2/top-headlines?country=br&category=$category&apiKey=63db1b3624f145c7b88677a76be4d357';
+        '$baseUrl&category=$category&apiKey=63db1b3624f145c7b88677a76be4d357';
 
     var response = await http.get(url);
 
@@ -56,14 +61,10 @@ class CategoryNews {
 
     return articles;
   }
-}
 
-class News {
-  List<Article> news = [];
-
-  Future<void> getNews() async {
-    String url =
-        'http://newsapi.org/v2/top-headlines?country=br&apiKey=63db1b3624f145c7b88677a76be4d357';
+  Future<List<Article>> getNews() async {
+    List<Article> news = [];
+    String url = '$baseUrl&apiKey=63db1b3624f145c7b88677a76be4d357';
 
     var response = await http.get(url);
 
@@ -84,5 +85,6 @@ class News {
         }
       });
     }
+    return news;
   }
 }
