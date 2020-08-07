@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/components/feed_article_tile.dart';
+import 'feed_article_tile.dart';
 import 'package:newsapp/models/article.dart';
 
 class Feed extends StatelessWidget {

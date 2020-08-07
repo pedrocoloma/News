@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:newsapp/blocs/featured_news_event.dart';
-import 'package:newsapp/blocs/featured_news_state.dart';
+import 'package:newsapp/blocs/blocs.dart';
 import 'package:newsapp/repositories/news_repository.dart';
 
 class FeaturedNewsBloc extends Bloc<FeaturedNewsEvent, FeaturedNewsStaate> {

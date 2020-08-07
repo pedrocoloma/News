@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/models/models.dart';
-import 'package:newsapp/screens/article_screen.dart';
-import 'package:newsapp/screens/category_screen.dart';
+import 'article_screen.dart';
+import 'category_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:newsapp/repositories/repositories.dart';

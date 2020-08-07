@@ -1,7 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:newsapp/repositories/news_api_client.dart';
-import 'package:newsapp/repositories/news_repository.dart';
+import 'package:newsapp/repositories/repositories.dart';
 import 'package:newsapp/screens/home_screen.dart';
 import 'package:newsapp/screens/categories_screen.dart';
 

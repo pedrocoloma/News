@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp/blocs/featued_news_bloc.dart';
-import 'package:newsapp/blocs/featured_news_event.dart';
-import 'package:newsapp/blocs/featured_news_state.dart';
-import 'package:newsapp/components/feed.dart';
+import 'package:newsapp/blocs/blocs.dart';
+import 'feed.dart';
 import 'package:newsapp/repositories/news_repository.dart';
 import 'package:shimmer/shimmer.dart';
 
