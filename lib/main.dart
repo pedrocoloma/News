@@ -1,19 +1,36 @@
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:newsapp/repositories/news_api_client.dart';
+import 'package:newsapp/repositories/news_repository.dart';
 import 'package:newsapp/screens/home_screen.dart';
 import 'package:newsapp/screens/categories_screen.dart';
 
-void main() => runApp(HomeApp());
-
-class HomeApp extends StatefulWidget {
-  @override
-  _HomeAppState createState() => _HomeAppState();
+void main() {
+  final newsRepository = NewsRepository(
+    newsApiClient:
+        NewsApiClient(httpClient: http.Client()), // não está sendo usado
+  );
+  runApp(App(newsRepository: newsRepository));
 }
 
-class _HomeAppState extends State<HomeApp> {
+class App extends StatefulWidget {
+  final NewsRepository newsRepository;
+
+  App({@required this.newsRepository});
+
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
   int _selectedIndex = 0;
 
   List<Widget> screens = [
-    HomeScreen(),
+    HomeScreen(
+      repository: NewsRepository(
+        newsApiClient: NewsApiClient(httpClient: http.Client()),
+      ),
+    ),
     CategoriesScreen(),
   ];
 

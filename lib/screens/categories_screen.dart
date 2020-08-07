@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/models/article.dart';
-import 'package:newsapp/models/category.dart';
-import 'package:newsapp/models/data.dart';
-import 'package:newsapp/news.dart';
+import 'package:newsapp/models/models.dart';
 import 'package:newsapp/screens/article_screen.dart';
 import 'package:newsapp/screens/category_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:newsapp/repositories/repositories.dart';
 
 class CategoriesScreen extends StatelessWidget {
   final List<Category> _categories = getCategories();
@@ -25,6 +23,8 @@ class CategoriesScreen extends StatelessWidget {
 
 class CategoryTile extends StatefulWidget {
   final Category _category;
+  final NewsRepository repository =
+      NewsRepository(newsApiClient: NewsApiClient());
 
   CategoryTile(this._category);
 
@@ -44,7 +44,7 @@ class _CategoryTileState extends State<CategoryTile> {
 
   void getArticles() async {
     _articles =
-        await CategoryNews().getFeaturedNews(widget._category.identifier);
+        await widget.repository.getFeaturedNews(widget._category.identifier);
     setState(() {
       isLoading = false;
     });

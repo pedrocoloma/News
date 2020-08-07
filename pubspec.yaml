@@ -32,6 +32,9 @@ dependencies:
   cached_network_image: ^2.2.0+1
   webview_flutter: ^0.3.22+1
   shimmer: ^1.1.1
+  bloc: ^6.0.1
+  equatable: ^1.2.3
+  flutter_bloc: ^6.0.1
 
 dev_dependencies:
   flutter_test:

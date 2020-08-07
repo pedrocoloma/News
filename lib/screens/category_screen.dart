@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/components/feed.dart';
 import 'package:newsapp/models/article.dart';
-import 'package:newsapp/news.dart';
+import 'package:newsapp/repositories/repositories.dart';
 
 class CategoryScreen extends StatefulWidget {
   CategoryScreen(this.category);
   final String category;
+  final NewsRepository repository =
+      NewsRepository(newsApiClient: NewsApiClient());
 
   @override
   _CategoryScreenState createState() => _CategoryScreenState();
@@ -22,8 +24,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   }
 
   getArticles() async {
-    CategoryNews news = CategoryNews();
-    _articles = await news.getNews(widget.category);
+    _articles = await widget.repository.getNewsForCategory(widget.category);
     setState(() {
       _isLoading = false;
     });
