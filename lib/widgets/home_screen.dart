@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newsapp/blocs/blocs.dart';
 import 'feed.dart';
 import 'package:newsapp/repositories/news_repository.dart';
-import 'package:shimmer/shimmer.dart';
+import 'loading_error.dart';
+import 'loading_feed.dart';
 
 class HomeScreen extends StatelessWidget {
   final NewsRepository repository;
@@ -18,53 +19,11 @@ class HomeScreen extends StatelessWidget {
             ..add(FeaturedNewsRequest()),
           builder: (context, state) {
             if (state is FeaturedNewsIsLoading) {
-              return Center(
-                child: Container(
-                  child: Shimmer.fromColors(
-                    baseColor: Colors.grey[300],
-                    highlightColor: Colors.grey[100],
-                    child: ListView.builder(
-                        itemBuilder: (_, __) => Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 16.0,
-                                vertical: 10.0,
-                              ),
-                              child: Column(
-                                children: <Widget>[
-                                  Container(
-                                    width: double.infinity,
-                                    height: 180,
-                                    color: Colors.white,
-                                  ),
-                                  SizedBox(
-                                    height: 8.0,
-                                  ),
-                                  Container(
-                                    width: double.infinity,
-                                    height: 50,
-                                    color: Colors.white,
-                                  ),
-                                  SizedBox(
-                                    height: 8.0,
-                                  ),
-                                  Container(
-                                    width: double.infinity,
-                                    height: 70,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                            )),
-                  ),
-                ),
-              );
+              return LoadingFeed();
             } else if (state is FeaturedNewsLoadedWithSuccess) {
               return Feed(state.news);
             }
-            return Container(
-              width: 0,
-              height: 0,
-            );
+            return LoadingError();
           }),
     );
   }

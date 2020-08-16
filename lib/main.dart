@@ -1,8 +1,8 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:newsapp/repositories/repositories.dart';
-import 'package:newsapp/screens/home_screen.dart';
-import 'package:newsapp/screens/categories_screen.dart';
+import 'package:newsapp/widgets/home_screen.dart';
+import 'package:newsapp/widgets/categories_screen.dart';
 
 void main() {
   final newsRepository = NewsRepository(
