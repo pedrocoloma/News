@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'article_screen.dart';
+import '../article_screen.dart';
 
 class FeedArticleTile extends StatelessWidget {
   final String title, description, imageUrl, url;
