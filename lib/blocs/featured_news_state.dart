@@ -1,11 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:newsapp/models/article.dart';
 
-abstract class FeaturedNewsStaate extends Equatable {
+abstract class FeaturedNewsStaate {
   FeaturedNewsStaate();
-
-  @override
-  List<Object> get props => [];
 }
 
 class FeaturedNewsInitial extends FeaturedNewsStaate {}
